@@ -199,3 +199,65 @@ a:hover {
 .nav-links a:hover {
 	color: var(--primary-purple);
 }
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+	background: linear-gradient(135deg, rgba(165, 53, 240, 0.1) 0%, rgba(139, 47, 204, 0.1) 100%);
+	padding: 6rem 0;
+	min-height: calc(100vh - 70px);
+	display: flex;
+	align-items: center;
+}
+
+.hero-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+}
+
+.hero-text h1 {
+	font-size: 3.2rem;
+	margin-bottom: 1.5rem;
+	line-height: 1.3;
+}
+
+.hero-text p {
+	font-size: 1.1rem;
+	margin-bottom: 2rem;
+	color: var(--text-light);
+	line-height: 1.8;
+}
+
+.hero-buttons {
+	display: flex;
+	gap: 1.5rem;
+	margin-bottom: 3rem;
+	flex-wrap: wrap;
+}
+
+.hero-image img {
+	width: 100%;
+	border-radius: 16px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hero-stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.stat h3 {
+	font-size: 2rem;
+	color: var(--primary-purple);
+	margin-bottom: 0.5rem;
+}
+
+.stat p {
+	font-size: 0.9rem;
+	color: var(--text-light);
+}
