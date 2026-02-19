@@ -309,3 +309,123 @@ a:hover {
 	color: var(--text-light);
 	font-size: 0.95rem;
 }
+
+/* ========================================
+   COURSES SECTION
+   ======================================== */
+
+.courses {
+	padding: 6rem 2rem;
+	background: var(--light-bg);
+}
+
+.section-subtitle {
+	text-align: center;
+	color: var(--text-light);
+	font-size: 1.1rem;
+	margin-bottom: 3rem;
+}
+
+.courses-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.5rem;
+	margin-top: 3rem;
+	max-width: 100%;
+}
+
+.course-card {
+	background: var(--white);
+	border: 2px solid var(--border-color);
+	border-radius: 12px;
+	padding: 2rem;
+	text-align: center;
+	position: relative;
+	transition: all 0.3s;
+	display: flex;
+	flex-direction: column;
+	overflow: visible;
+}
+
+.course-card:hover {
+	border-color: var(--primary-purple);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.course-card img {
+	display: none;
+}
+
+.course-card h3 {
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+.course-subtitle {
+	color: var(--primary-orange);
+	font-weight: 600;
+	font-size: 0.85rem;
+	margin-bottom: 1rem;
+}
+
+.course-details {
+	margin-bottom: 1.5rem;
+	flex-grow: 1;
+	text-align: left;
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+.course-details p {
+	font-size: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+
+.course-cost {
+	background: rgba(165, 53, 240, 0.1);
+	padding: 0.75rem;
+	border-radius: 6px;
+	font-size: 0.8rem;
+	color: var(--primary-purple);
+	margin-top: 0.5rem;
+}
+
+.course-pricing {
+	margin-bottom: 1.5rem;
+	text-align: left;
+}
+
+.price-option {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.75rem;
+}
+
+.price-option span {
+	color: var(--text-light);
+	font-size: 0.85rem;
+}
+
+.price-option strong {
+	color: var(--primary-purple);
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.free-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	min-height: 45px;
+	border-top: 1px solid #e0e0e0;
+	color: #4caf50;
+	font-weight: 600;
+	font-size: 0.8rem;
+	padding: 0.75rem 0;
+	margin: 0;
+	box-sizing: border-box;
+}
