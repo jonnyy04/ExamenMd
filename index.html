@@ -4,322 +4,355 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Examen.md - Pregătire Examene</title>
-		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: {
+								purple: "#a535f0",
+								"dark-purple": "#8b2fcc",
+								orange: "#ff6b35",
+								teal: "#009688",
+							},
+							dark: {
+								bg: "#0f1419",
+							},
+							light: {
+								bg: "#f8f9fa",
+							},
+							text: {
+								dark: "#1a1a1a",
+								light: "#666666",
+							},
+							border: {
+								color: "#e0e0e0",
+							},
+						},
+						fontFamily: {
+							display: ["Playfair Display", "serif"],
+							body: ["Poppins", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
 	</head>
-	<body>
+	<body class="font-body bg-white text-text-dark">
 		<!-- NAVIGATION -->
-		<nav class="navbar">
-			<div class="container nav-wrapper">
-				<a href="#" class="logo"><img src="img/Logo.png" alt="Examen.md Logo" /></a>
-				<ul class="nav-links">
-					<li><a href="#courses">Cursuri</a></li>
-					<li><a href="#teachers">Profesori</a></li>
-					<li><a href="#about">Despre</a></li>
-					<li><a href="#contact">Contact</a></li>
+		<nav class="sticky top-0 z-1000 bg-white shadow-md py-4">
+			<div class="max-w-6xl mx-auto px-8 flex justify-between items-center gap-8">
+				<a href="#" class="flex items-center">
+					<img src="img/Logo.png" alt="Examen.md Logo" class="h-8 w-auto max-w-xs object-contain" />
+				</a>
+				<ul class="hidden lg:flex list-none gap-8 flex-1">
+					<li><a href="#courses" class="text-text-dark font-medium transition-colors hover:text-primary-purple">Cursuri</a></li>
+					<li><a href="#teachers" class="text-text-dark font-medium transition-colors hover:text-primary-purple">Profesori</a></li>
+					<li><a href="#about" class="text-text-dark font-medium transition-colors hover:text-primary-purple">Despre</a></li>
+					<li><a href="#contact" class="text-text-dark font-medium transition-colors hover:text-primary-purple">Contact</a></li>
 				</ul>
-				<a href="#contact" class="btn-primary">Înscrie-te</a>
+				<a href="#contact" class="inline-block px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te</a>
 			</div>
 		</nav>
 		<main>
 			<!-- HERO SECTION -->
-			<section class="hero">
-				<div class="container hero-content">
-					<div class="hero-text">
-						<h1>Pregătire de Examene cu Profesori Calificați</h1>
-						<p>Cursuri online și offline la toate disciplinele școlare. Ai probleme cu temele? Vrei note excelente? Înscrie-te la lecții adăugătoare!</p>
-						<div class="hero-buttons">
-							<a href="#contact" class="btn-primary btn-large">Lecție Gratuită</a>
-							<a href="#courses" class="btn-secondary btn-large">Vezi Cursurile</a>
+			<section class="bg-gradient-to-br from-primary-purple/10 to-primary-dark-purple/10 py-24 min-h-[calc(100vh-70px)] flex items-center">
+				<div class="max-w-6xl mx-auto px-8">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+						<div class="space-y-6">
+							<h1 class="font-display text-5xl lg:text-5xl font-bold leading-tight">Pregătire de Examene cu Profesori Calificați</h1>
+							<p class="text-lg text-text-light leading-relaxed">Cursuri online și offline la toate disciplinele școlare. Ai probleme cu temele? Vrei note excelente? Înscrie-te la lecții adăugătoare!</p>
+							<div class="flex flex-col sm:flex-row gap-6 flex-wrap">
+								<a href="#contact" class="inline-block px-12 py-4 text-lg rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">Lecție Gratuită</a>
+								<a href="#courses" class="inline-block px-12 py-4 text-lg rounded-full font-semibold text-primary-purple border-2 border-primary-purple transition-all duration-300 hover:bg-primary-purple hover:text-white">Vezi Cursurile</a>
+							</div>
+							<div class="grid grid-cols-3 gap-8 pt-6">
+								<div>
+									<h3 class="font-display text-4xl font-bold text-primary-purple">98%</h3>
+									<p class="text-sm text-text-light">Rata de succes</p>
+								</div>
+								<div>
+									<h3 class="font-display text-4xl font-bold text-primary-purple">10,542</h3>
+									<p class="text-sm text-text-light">Elevi mulțumiți</p>
+								</div>
+								<div>
+									<h3 class="font-display text-4xl font-bold text-primary-purple">30+</h3>
+									<p class="text-sm text-text-light">Profesori</p>
+								</div>
+							</div>
 						</div>
-						<div class="hero-stats">
-							<div class="stat">
-								<h3>98%</h3>
-								<p>Rata de succes</p>
-							</div>
-							<div class="stat">
-								<h3>10,542</h3>
-								<p>Elevi mulțumiți</p>
-							</div>
-							<div class="stat">
-								<h3>30+</h3>
-								<p>Profesori</p>
-							</div>
+						<div>
+							<img src="img/img1.png" alt="Pregătire examene" class="w-full rounded-2xl shadow-2xl" />
 						</div>
-					</div>
-					<div class="hero-image">
-						<img src="img/img1.png" alt="Pregătire examene" />
 					</div>
 				</div>
 			</section>
 			<!-- WHY US SECTION -->
-			<section class="why-us">
-				<div class="container">
-					<h2>De ce să alegi Examen.md?</h2>
-					<div class="benefits-grid">
-						<div class="benefit-card">
-							<div class="benefit-icon">👨‍🏫</div>
-							<h3>Profesori Calificați</h3>
-							<p>Fiecare profesor predă 100% corect din punct de vedere științific.</p>
+			<section class="py-24 bg-light-bg">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">De ce să alegi Examen.md?</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">👨‍🏫</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Profesori Calificați</h3>
+							<p class="text-text-light">Fiecare profesor predă 100% corect din punct de vedere științific.</p>
 						</div>
-						<div class="benefit-card">
-							<div class="benefit-icon">📚</div>
-							<h3>Predare Față în Față</h3>
-							<p>Ore online și offline. Învață eficient cu profesorul.</p>
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">📚</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Predare Față în Față</h3>
+							<p class="text-text-light">Ore online și offline. Învață eficient cu profesorul.</p>
 						</div>
-						<div class="benefit-card">
-							<div class="benefit-icon">💬</div>
-							<h3>Asistență Profesor</h3>
-							<p>Profesorii răspund la întrebări pe Viber/Telegram.</p>
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">💬</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Asistență Profesor</h3>
+							<p class="text-text-light">Profesorii răspund la întrebări pe Viber/Telegram.</p>
 						</div>
-						<div class="benefit-card">
-							<div class="benefit-icon">🎯</div>
-							<h3>Orientare spre Rezultat</h3>
-							<p>Garantăm susținerea cu brio a examenului.</p>
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">🎯</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Orientare spre Rezultat</h3>
+							<p class="text-text-light">Garantăm susținerea cu brio a examenului.</p>
 						</div>
-						<div class="benefit-card">
-							<div class="benefit-icon">🤝</div>
-							<h3>Răbdare și Înțelegere</h3>
-							<p>Niciun profesor nu se enervează pe niciun elev.</p>
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">🤝</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Răbdare și Înțelegere</h3>
+							<p class="text-text-light">Niciun profesor nu se enervează pe niciun elev.</p>
 						</div>
-						<div class="benefit-card">
-							<div class="benefit-icon">⬆️</div>
-							<h3>Creștere Continuă</h3>
-							<p>Profesorii fac training săptămânal cu specialiști.</p>
+						<div class="bg-white p-8 rounded-xl shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<div class="text-5xl mb-4">⬆️</div>
+							<h3 class="font-display text-2xl font-bold mb-4 text-text-dark">Creștere Continuă</h3>
+							<p class="text-text-light">Profesorii fac training săptămânal cu specialiști.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-- COURSES SECTION -->
-			<section class="courses" id="courses">
-				<div class="container">
-					<h2>Cursurile Noastre</h2>
-					<p class="section-subtitle">Pregătire de examen la orice disciplină</p>
+			<section class="py-24 bg-light-bg" id="courses">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">Cursurile Noastre</h2>
+					<p class="text-center text-text-light text-lg mb-12">Pregătire de examen la orice disciplină</p>
 
-					<div class="courses-grid">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 						<!-- Course 1 -->
-						<div class="course-card">
-							<img src="img/img1.png" alt="Meditații" />
-							<h3>Meditații la Orice Disciplină</h3>
-							<p class="course-subtitle">Teste, Teze (Cl. 1-12)</p>
-							<div class="course-details">
+						<div class="bg-white border-2 border-border-color rounded-xl p-8 flex flex-col transition-all duration-300 hover:border-primary-purple hover:shadow-xl">
+							<h3 class="font-display text-xl font-bold mb-4">Meditații la Orice Disciplină</h3>
+							<p class="text-primary-orange font-semibold text-sm mb-4">Teste, Teze (Cl. 1-12)</p>
+							<div class="flex-grow text-left text-sm leading-relaxed mb-4 space-y-2">
 								<p><strong>Perioada:</strong> 12 săptămâni</p>
 								<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
 								<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
-								<p class="course-cost"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+								<p class="bg-primary-purple/10 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
 							</div>
-							<div class="course-pricing">
-								<div class="price-option">
-									<span>Plată Completă</span>
-									<strong>4 813 MDL</strong>
+							<div class="mb-4 text-left space-y-3">
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată Completă</span>
+									<strong class="text-primary-purple text-base">4 813 MDL</strong>
 								</div>
-								<div class="price-option">
-									<span>Economisești</span>
-									<strong>419 MDL (8%)</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Economisești</span>
+									<strong class="text-primary-purple text-base">419 MDL (8%)</strong>
 								</div>
-								<div class="price-option">
-									<span>Plată În Rate</span>
-									<strong>1 744 MDL</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată În Rate</span>
+									<strong class="text-primary-purple text-base">1 744 MDL</strong>
 								</div>
 							</div>
-							<a href="#contact" class="btn-primary btn-block">Înscrie-te Acum!</a>
-							<p class="free-text">Prima sesiune de probă: GRATUITĂ!</p>
+							<a href="#contact" class="block w-11/12 mx-auto mb-2.5 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te Acum!</a>
+							<p class="flex items-center justify-center text-center min-h-11.25 border-t border-border-color text-green-600 font-semibold text-sm py-3 m-0 box-border">Prima sesiune de probă: GRATUITĂ!</p>
 						</div>
 
 						<!-- Course 2 -->
-						<div class="course-card">
-							<img src="img/img2.png" alt="Matematică" />
-							<h3>Curs Matematică: BAC 2026</h3>
-							<p class="course-subtitle">De la Zero / Examen Cl. 9</p>
-							<div class="course-details">
+						<div class="bg-white border-2 border-border-color rounded-xl p-8 flex flex-col transition-all duration-300 hover:border-primary-purple hover:shadow-xl">
+							<h3 class="font-display text-xl font-bold mb-4">Curs Matematică: BAC 2026</h3>
+							<p class="text-primary-orange font-semibold text-sm mb-4">De la Zero / Examen Cl. 9</p>
+							<div class="flex-grow text-left text-sm leading-relaxed mb-4 space-y-2">
 								<p><strong>Perioada:</strong> 12 săptămâni</p>
 								<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
 								<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
-								<p class="course-cost"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+								<p class="bg-primary-purple/10 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
 							</div>
-							<div class="course-pricing">
-								<div class="price-option">
-									<span>Plată Completă</span>
-									<strong>4 813 MDL</strong>
+							<div class="mb-4 text-left space-y-3">
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată Completă</span>
+									<strong class="text-primary-purple text-base">4 813 MDL</strong>
 								</div>
-								<div class="price-option">
-									<span>Economisești</span>
-									<strong>419 MDL (8%)</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Economisești</span>
+									<strong class="text-primary-purple text-base">419 MDL (8%)</strong>
 								</div>
-								<div class="price-option">
-									<span>Plată În Rate</span>
-									<strong>1 744 MDL</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată În Rate</span>
+									<strong class="text-primary-purple text-base">1 744 MDL</strong>
 								</div>
 							</div>
-							<a href="#contact" class="btn-primary btn-block">Înscrie-te Acum!</a>
-							<p class="free-text">Prima sesiune de probă: GRATUITĂ!</p>
+							<a href="#contact" class="block w-11/12 mx-auto mb-2.5 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te Acum!</a>
+							<p class="flex items-center justify-center text-center min-h-11.25 border-t border-border-color text-green-600 font-semibold text-sm py-3 m-0 box-border">Prima sesiune de probă: GRATUITĂ!</p>
 						</div>
 
 						<!-- Course 3 -->
-						<div class="course-card">
-							<img src="img/img3.png" alt="BAC" />
-							<h3>Curs BAC 2026 / Examen Cl. 9</h3>
-							<p class="course-subtitle">La Orice Disciplină</p>
-							<div class="course-details">
+						<div class="bg-white border-2 border-border-color rounded-xl p-8 flex flex-col transition-all duration-300 hover:border-primary-purple hover:shadow-xl">
+							<h3 class="font-display text-xl font-bold mb-4">Curs BAC 2026 / Examen Cl. 9</h3>
+							<p class="text-primary-orange font-semibold text-sm mb-4">La Orice Disciplină</p>
+							<div class="flex-grow text-left text-sm leading-relaxed mb-4 space-y-2">
 								<p><strong>Perioada:</strong> 12 săptămâni</p>
 								<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
 								<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
-								<p class="course-cost"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+								<p class="bg-primary-purple/10 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
 							</div>
-							<div class="course-pricing">
-								<div class="price-option">
-									<span>Plată Completă</span>
-									<strong>4 813 MDL</strong>
+							<div class="mb-4 text-left space-y-3">
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată Completă</span>
+									<strong class="text-primary-purple text-base">4 813 MDL</strong>
 								</div>
-								<div class="price-option">
-									<span>Economisești</span>
-									<strong>419 MDL (8%)</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Economisești</span>
+									<strong class="text-primary-purple text-base">419 MDL (8%)</strong>
 								</div>
-								<div class="price-option">
-									<span>Plată În Rate</span>
-									<strong>1 744 MDL</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată În Rate</span>
+									<strong class="text-primary-purple text-base">1 744 MDL</strong>
 								</div>
 							</div>
-							<a href="#contact" class="btn-primary btn-block">Înscrie-te Acum!</a>
-							<p class="free-text">Prima sesiune de probă: GRATUITĂ!</p>
+							<a href="#contact" class="block w-11/12 mx-auto mb-2.5 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te Acum!</a>
+							<p class="flex items-center justify-center text-center min-h-11.25 border-t border-border-color text-green-600 font-semibold text-sm py-3 m-0 box-border">Prima sesiune de probă: GRATUITĂ!</p>
 						</div>
 
 						<!-- Course 4 -->
-						<div class="course-card">
-							<img src="img/img1.png" alt="Limba Engleză" />
-							<h3>Limba Engleză</h3>
-							<p class="course-subtitle">Prin Metoda Asimilării (Conversațional)</p>
-							<div class="course-details">
+						<div class="bg-white border-2 border-border-color rounded-xl p-8 flex flex-col transition-all duration-300 hover:border-primary-purple hover:shadow-xl">
+							<h3 class="font-display text-xl font-bold mb-4">Limba Engleză</h3>
+							<p class="text-primary-orange font-semibold text-sm mb-4">Prin Metoda Asimilării (Conversațional)</p>
+							<div class="flex-grow text-left text-sm leading-relaxed mb-4 space-y-2">
 								<p><strong>Perioada:</strong> 12 săptămâni</p>
 								<p><strong>Frecvență:</strong> 3 sesiuni/săptămână (60 min/sesiune)</p>
 								<p><strong>Format:</strong> ECONOM (8 elevi/grup)</p>
-								<p class="course-cost"><strong>Cost Curs:</strong> 5 328 MDL (36 sesiuni)</p>
+								<p class="bg-primary-purple/10 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 328 MDL (36 sesiuni)</p>
 							</div>
-							<div class="course-pricing">
-								<div class="price-option">
-									<span>Plată Completă</span>
-									<strong>4 902 MDL</strong>
+							<div class="mb-4 text-left space-y-3">
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată Completă</span>
+									<strong class="text-primary-purple text-base">4 902 MDL</strong>
 								</div>
-								<div class="price-option">
-									<span>Economisești</span>
-									<strong>426 MDL (8%)</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Economisești</span>
+									<strong class="text-primary-purple text-base">426 MDL (8%)</strong>
 								</div>
-								<div class="price-option">
-									<span>Plată În Rate</span>
-									<strong>1 776 MDL</strong>
+								<div class="flex justify-between items-center">
+									<span class="text-text-light text-sm">Plată În Rate</span>
+									<strong class="text-primary-purple text-base">1 776 MDL</strong>
 								</div>
 							</div>
-							<a href="#contact" class="btn-primary btn-block">Înscrie-te Acum!</a>
-							<p class="free-text">Prima sesiune de probă: GRATUITĂ!</p>
+							<a href="#contact" class="block w-11/12 mx-auto mb-2.5 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te Acum!</a>
+							<p class="flex items-center justify-center text-center min-h-11.25 border-t border-border-color text-green-600 font-semibold text-sm py-3 m-0 box-border">Prima sesiune de probă: GRATUITĂ!</p>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-- TEACHERS SECTION -->
-			<section class="teachers" id="teachers">
-				<div class="container">
-					<h2>Profesorii Noștri</h2>
-					<p class="section-subtitle">Profesioniști cu pasiune pentru educație</p>
+			<section class="py-24 bg-gradient-to-br from-primary-purple/5 to-primary-dark-purple/5" id="teachers">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">Profesorii Noștri</h2>
+					<p class="text-center text-text-light text-lg mb-12">Profesioniști cu pasiune pentru educație</p>
 
-					<div class="teachers-grid">
-						<div class="teacher-card">
-							<img src="img/prof4.png" alt="Cristian Lupașco" />
-							<h3>Cobzari Ion</h3>
-							<p>Profesor Matematică<br /><small>Clasele 9-12</small></p>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+						<div class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<img src="img/prof4.png" alt="Cobzari Ion" class="w-full h-55 object-cover" />
+							<h3 class="font-display text-lg font-bold px-4 py-3 mb-0">Cobzari Ion</h3>
+							<p class="px-4 pb-4 m-0 text-sm text-text-light">Profesor Matematică<br /><small>Clasele 9-12</small></p>
 						</div>
-						<div class="teacher-card">
-							<img src="img/prof1.png" alt="Ovidiu Harunjen" />
-							<h3>Ovidiu Harunjen</h3>
-							<p>Profesor Matematică<br /><small>Clasele 10-12</small></p>
+						<div class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<img src="img/prof1.png" alt="Ovidiu Harunjen" class="w-full h-55 object-cover" />
+							<h3 class="font-display text-lg font-bold px-4 py-3 mb-0">Ovidiu Harunjen</h3>
+							<p class="px-4 pb-4 m-0 text-sm text-text-light">Profesor Matematică<br /><small>Clasele 10-12</small></p>
 						</div>
-						<div class="teacher-card">
-							<img src="img/prof2.png" alt="Rodica Gotca" />
-							<h3>Rodica Gotca</h3>
-							<p>Profesoară Limba Română<br /><small>Clasele 10-12</small></p>
+						<div class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<img src="img/prof2.png" alt="Rodica Gotca" class="w-full h-55 object-cover" />
+							<h3 class="font-display text-lg font-bold px-4 py-3 mb-0">Rodica Gotca</h3>
+							<p class="px-4 pb-4 m-0 text-sm text-text-light">Profesoară Limba Română<br /><small>Clasele 10-12</small></p>
 						</div>
-						<div class="teacher-card">
-							<img src="img/img1.png" alt="Camelia Damian" />
-							<h3>Camelia Damian</h3>
-							<p>Profesoară Limba Engleză<br /><small>Clasele 9-12</small></p>
+						<div class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<img src="img/prof5.png" alt="Usurelu Cosmin" class="w-full h-55 object-cover" />
+							<h3 class="font-display text-lg font-bold px-4 py-3 mb-0">Usurelu Cosmin</h3>
+							<p class="px-4 pb-4 m-0 text-sm text-text-light">Profesor Matematica<br /><small>Clasele 7-9</small></p>
 						</div>
-						<div class="teacher-card">
-							<img src="img/prof3.png" alt="Diana Mocanu" />
-							<h3>Diana Mocanu</h3>
-							<p>Profesoară Istorie<br /><small>Clasele 5-12</small></p>
+						<div class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 text-center hover:-translate-y-2 hover:shadow-xl">
+							<img src="img/prof3.png" alt="Diana Mocanu" class="w-full h-55 object-cover" />
+							<h3 class="font-display text-lg font-bold px-4 py-3 mb-0">Diana Mocanu</h3>
+							<p class="px-4 pb-4 m-0 text-sm text-text-light">Profesoară Istorie<br /><small>Clasele 5-12</small></p>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- ABOUT SECTION -->
-			<section class="about" id="about">
-				<div class="container">
-					<h2>Despre Examen.md</h2>
-					<div class="about-content">
-						<p>Suntem cea mai mare școală de meditații din Republica Moldova. Oferim cursuri eficiente de pregătire pentru examene și teme, în regim online și offline.</p>
-						<p>Profesorii noștri sunt competenți și predau cu pasiune, asigurându-se că fiecare elev înțelege materia și progresează.</p>
+			<section class="py-24" id="about">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">Despre Examen.md</h2>
+					<div class="max-w-2xl mx-auto text-center text-lg leading-relaxed space-y-4 mb-12">
+						<p class="text-text-light">Suntem cea mai mare școală de meditații din Republica Moldova. Oferim cursuri eficiente de pregătire pentru examene și teme, în regim online și offline.</p>
+						<p class="text-text-light">Profesorii noștri sunt competenți și predau cu pasiune, asigurându-se că fiecare elev înțelege materia și progresează.</p>
 					</div>
 
-					<div class="stats-grid">
-						<div class="stat-box">
-							<h3>400+</h3>
-							<p>Exerciții rezolvate</p>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+						<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-8 rounded-xl text-center shadow-md">
+							<h3 class="font-display text-5xl font-bold mb-2">400+</h3>
+							<p class="text-white/90 m-0">Exerciții rezolvate</p>
 						</div>
-						<div class="stat-box">
-							<h3>10,542</h3>
-							<p>Elevi mulțumiți</p>
+						<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-8 rounded-xl text-center shadow-md">
+							<h3 class="font-display text-5xl font-bold mb-2">10,542</h3>
+							<p class="text-white/90 m-0">Elevi mulțumiți</p>
 						</div>
-						<div class="stat-box">
-							<h3>30+</h3>
-							<p>Profesori</p>
+						<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-8 rounded-xl text-center shadow-md">
+							<h3 class="font-display text-5xl font-bold mb-2">30+</h3>
+							<p class="text-white/90 m-0">Profesori</p>
 						</div>
-						<div class="stat-box">
-							<h3>98%</h3>
-							<p>Rata de succes</p>
+						<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-8 rounded-xl text-center shadow-md">
+							<h3 class="font-display text-5xl font-bold mb-2">98%</h3>
+							<p class="text-white/90 m-0">Rata de succes</p>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-- MAP SECTION -->
-			<section class="map" id="map">
-				<div class="container">
-					<h2>Localizare</h2>
-					<p class="section-subtitle">Găsește-ne pe hartă</p>
+			<section class="py-24 bg-light-bg" id="map">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">Localizare</h2>
+					<p class="text-center text-text-light text-lg mb-12">Găsește-ne pe hartă</p>
 
-					<div class="map-container">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.6883363146043!2d28.361619!3d47.1614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1d3e6f9e6f9e7%3A0x4c4f4f4f4f4f4f4f!2sstr.%20Ismail%2044%2C%20Chi%C8%99in%C4%83u!5e0!3m2!1sro!2smd!4v1234567890" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+					<div class="rounded-xl overflow-hidden shadow-md">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.6883363146043!2d28.361619!3d47.1614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1d3e6f9e6f9e7%3A0x4c4f4f4f4f4f4f4f!2sstr.%20Ismail%2044%2C%20Chi%C8%99in%C4%83u!5e0!3m2!1sro!2smd!4v1234567890" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 				</div>
 			</section>
 
 			<!-- CONTACT SECTION -->
-			<section class="contact" id="contact">
-				<div class="container">
-					<h2>Contactează-ne</h2>
-					<p class="section-subtitle">Înscrie-te la o lecție de probă gratuită</p>
+			<section class="py-24" id="contact">
+				<div class="max-w-6xl mx-auto px-8">
+					<h2 class="font-display text-3xl lg:text-5xl font-bold text-center mb-4">Contactează-ne</h2>
+					<p class="text-center text-text-light text-lg mb-12">Înscrie-te la o lecție de probă gratuită</p>
 
-					<div class="contact-wrapper">
-						<form class="contact-form">
-							<div class="form-group">
-								<label for="name">Nume și Prenume</label>
-								<input type="text" id="name" placeholder="Ionescu Ana" required />
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-12">
+						<form class="bg-white p-10 rounded-xl shadow-md">
+							<div class="mb-6">
+								<label for="name" class="block font-semibold mb-2 text-text-dark">Nume și Prenume</label>
+								<input type="text" id="name" placeholder="Ionescu Ana" required class="w-full px-3.5 py-3.5 border border-border-color rounded-lg font-body text-base transition-all duration-300 focus:outline-none focus:border-primary-purple focus:ring-3 focus:ring-primary-purple/10" />
 							</div>
 
-							<div class="form-row">
-								<div class="form-group">
-									<label for="email">Email</label>
-									<input type="email" id="email" placeholder="example@email.com" required />
+							<div class="grid grid-cols-2 gap-4 mb-6">
+								<div>
+									<label for="email" class="block font-semibold mb-2 text-text-dark">Email</label>
+									<input type="email" id="email" placeholder="example@email.com" required class="w-full px-3.5 py-3.5 border border-border-color rounded-lg font-body text-base transition-all duration-300 focus:outline-none focus:border-primary-purple focus:ring-3 focus:ring-primary-purple/10" />
 								</div>
-								<div class="form-group">
-									<label for="phone">Telefon</label>
-									<input type="tel" id="phone" placeholder="+373 78 555 855" required />
+								<div>
+									<label for="phone" class="block font-semibold mb-2 text-text-dark">Telefon</label>
+									<input type="tel" id="phone" placeholder="+373 78 555 855" required class="w-full px-3.5 py-3.5 border border-border-color rounded-lg font-body text-base transition-all duration-300 focus:outline-none focus:border-primary-purple focus:ring-3 focus:ring-primary-purple/10" />
 								</div>
 							</div>
 
-							<div class="form-row">
-								<div class="form-group">
-									<label for="grade">Clasa</label>
-									<select id="grade" required>
+							<div class="grid grid-cols-2 gap-4 mb-6">
+								<div>
+									<label for="grade" class="block font-semibold mb-2 text-text-dark">Clasa</label>
+									<select id="grade" required class="w-full px-3.5 py-3.5 border border-border-color rounded-lg font-body text-base transition-all duration-300 focus:outline-none focus:border-primary-purple focus:ring-3 focus:ring-primary-purple/10">
 										<option value="">-- Selectează --</option>
 										<option value="1">Clasa 1</option>
 										<option value="5">Clasa 5</option>
@@ -327,9 +360,9 @@
 										<option value="12">Clasa 12</option>
 									</select>
 								</div>
-								<div class="form-group">
-									<label for="subject">Disciplina</label>
-									<select id="subject" required>
+								<div>
+									<label for="subject" class="block font-semibold mb-2 text-text-dark">Disciplina</label>
+									<select id="subject" required class="w-full px-3.5 py-3.5 border border-border-color rounded-lg font-body text-base transition-all duration-300 focus:outline-none focus:border-primary-purple focus:ring-3 focus:ring-primary-purple/10">
 										<option value="">-- Selectează --</option>
 										<option value="matematica">Matematică</option>
 										<option value="romana">Limba Română</option>
@@ -339,44 +372,44 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label>Format curs</label>
-								<div class="radio-group">
-									<label class="radio-label">
-										<input type="radio" name="format" value="online" checked />
+							<div class="mb-6">
+								<label class="block font-semibold mb-2 text-text-dark">Format curs</label>
+								<div class="flex gap-8 mt-2">
+									<label class="flex items-center gap-2 cursor-pointer font-medium">
+										<input type="radio" name="format" value="online" checked class="w-auto m-0" />
 										<span>Online</span>
 									</label>
-									<label class="radio-label">
-										<input type="radio" name="format" value="offline" />
+									<label class="flex items-center gap-2 cursor-pointer font-medium">
+										<input type="radio" name="format" value="offline" class="w-auto m-0" />
 										<span>Offline</span>
 									</label>
 								</div>
 							</div>
 
-							<button type="submit" class="btn-primary btn-large">Înscrie-te la Lecție Gratuită</button>
+							<button type="submit" class="w-full px-12 py-4 text-lg rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Înscrie-te la Lecție Gratuită</button>
 						</form>
 
-						<div class="contact-info">
-							<div class="info-card">
-								<h3>📍 Locație</h3>
-								<p>
+						<div class="space-y-8">
+							<div class="bg-light-bg p-8 rounded-xl border-l-4 border-primary-purple">
+								<h3 class="text-primary-purple font-display text-xl font-bold mb-4">📍 Locație</h3>
+								<p class="text-text-light text-sm leading-relaxed m-0">
 									str. Ismail 44<br />
 									Intersecția str. 31 August cu str. Ismail<br />
 									Chișinău, MD
 								</p>
 							</div>
 
-							<div class="info-card">
-								<h3>📞 Contact</h3>
-								<p>
-									<strong>Telefon:</strong> +373 78 555 855<br />
+							<div class="bg-light-bg p-8 rounded-xl border-l-4 border-primary-purple">
+								<h3 class="text-primary-purple font-display text-xl font-bold mb-4">📞 Contact</h3>
+								<p class="text-text-light text-sm leading-relaxed m-0">
+									<strong>Telefon:</strong> +373 68 334 060<br />
 									<strong>Email:</strong> contact@examen.md
 								</p>
 							</div>
 
-							<div class="info-card">
-								<h3>🕐 Program</h3>
-								<p>
+							<div class="bg-light-bg p-8 rounded-xl border-l-4 border-primary-purple">
+								<h3 class="text-primary-purple font-display text-xl font-bold mb-4">🕐 Program</h3>
+								<p class="text-text-light text-sm leading-relaxed m-0">
 									<strong>Luni - Sâmbătă:</strong> 10:00 - 20:00<br />
 									<strong>Duminică:</strong> Zi liberă
 								</p>
@@ -388,37 +421,37 @@
 		</main>
 
 		<!-- FOOTER -->
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-content">
-					<div class="footer-column">
-						<h4>Examen.md</h4>
-						<ul>
-							<li><a href="#courses">Cursuri</a></li>
-							<li><a href="#teachers">Profesori</a></li>
-							<li><a href="#about">Despre</a></li>
+		<footer class="bg-dark-bg text-white py-12">
+			<div class="max-w-6xl mx-auto px-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 pb-8 border-b border-white/10">
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Examen.md</h4>
+						<ul class="list-none space-y-2">
+							<li><a href="#courses" class="text-white/70 transition-colors hover:text-primary-purple">Cursuri</a></li>
+							<li><a href="#teachers" class="text-white/70 transition-colors hover:text-primary-purple">Profesori</a></li>
+							<li><a href="#about" class="text-white/70 transition-colors hover:text-primary-purple">Despre</a></li>
 						</ul>
 					</div>
 
-					<div class="footer-column">
-						<h4>Informații</h4>
-						<ul>
-							<li><a href="#">Termene și Condiții</a></li>
-							<li><a href="#">Confidențialitate</a></li>
-							<li><a href="#">Date Firmă</a></li>
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Informații</h4>
+						<ul class="list-none space-y-2">
+							<li><a href="#" class="text-white/70 transition-colors hover:text-primary-purple">Termene și Condiții</a></li>
+							<li><a href="#" class="text-white/70 transition-colors hover:text-primary-purple">Confidențialitate</a></li>
+							<li><a href="#" class="text-white/70 transition-colors hover:text-primary-purple">Date Firmă</a></li>
 						</ul>
 					</div>
 
-					<div class="footer-column">
-						<h4>Contact</h4>
-						<p>
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Contact</h4>
+						<p class="text-white/70 text-sm m-0">
 							📞 +373 68 334 060<br />
 							📧 contact@examen.md
 						</p>
 					</div>
 				</div>
 
-				<div class="footer-bottom">
+				<div class="text-center text-white/60 text-sm">
 					<p>&copy; 2024 Examen.md. Toate drepturile rezervate.</p>
 				</div>
 			</div>
