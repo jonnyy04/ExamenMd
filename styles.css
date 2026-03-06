@@ -15,6 +15,14 @@
 	opacity: 1;
 }
 
+/* ── Course cards scale ── */
+@media (min-width: 1024px) {
+	.course-card {
+		transform: scale(0.93);
+		transform-origin: top center;
+	}
+}
+
 /* ── Mobile menu ── */
 #mobile-menu {
 	transition:
