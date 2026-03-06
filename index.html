@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Examen.md - Pregătire Examene</title>
 		<script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="styles.css" />
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 		<script>
 			tailwind.config = {
@@ -26,7 +26,6 @@
 				},
 			};
 		</script>
-		
 	</head>
 	<body class="font-body bg-white text-text-dark">
 		<!-- ===== MOBILE MENU ===== -->
@@ -99,7 +98,11 @@
 							</div>
 						</div>
 						<div class="order-first lg:order-last">
-							<img src="img/img1.png" alt="Pregătire examene" class="w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full rounded-2xl shadow-2xl" />
+							<div id="hero-carousel" class="relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full">
+								<img src="img/img1.png" alt="Pregătire examene" class="hero-slide active w-full" />
+								<img src="img/img2.png" alt="Pregătire examene" class="hero-slide w-full" />
+								<img src="img/img3.png" alt="Pregătire examene" class="hero-slide w-full" />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -547,6 +550,17 @@
 			menu.addEventListener("click", (e) => {
 				if (e.target === menu) closeMenu();
 			});
+
+			/* ── Hero Carousel ── */
+			(function () {
+				const slides = document.querySelectorAll("#hero-carousel .hero-slide");
+				let current = 0;
+				setInterval(() => {
+					slides[current].classList.remove("active");
+					current = (current + 1) % slides.length;
+					slides[current].classList.add("active");
+				}, 4000);
+			})();
 
 			/* ── Mascot ── */
 			const wrapper = document.getElementById("mascot-wrapper");
