@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ro">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Examen.md - Pregătire Examene</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="/styles.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: { purple: "#a535f0", "dark-purple": "#8b2fcc", orange: "#ff6b35" },
+							dark: { bg: "#0f1419" },
+							light: { bg: "#f8f9fa" },
+							text: { dark: "#1a1a1a", light: "#666666" },
+							border: { color: "#e0e0e0" },
+						},
+						fontFamily: {
+							display: ["Playfair Display", "serif"],
+							body: ["Poppins", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+	</head>
+	<body class="font-body bg-white text-text-dark">
+		<!-- ===== MOBILE MENU ===== -->
+		<div id="mobile-menu" class="hidden fixed inset-0 z-[9999] bg-white flex flex-col">
+			<div class="flex justify-between items-center px-6 py-4 border-b border-border-color">
+				<span class="font-display text-xl font-bold text-primary-purple">Examen.md</span>
+				<button id="close-menu" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Închide meniu">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<nav class="flex flex-col gap-1 px-4 py-6 flex-1">
+				<a href="#courses" class="mobile-link text-lg font-semibold py-4 px-4 rounded-xl hover:bg-purple-50 hover:text-primary-purple transition-colors">Cursuri</a>
+				<a href="#teachers" class="mobile-link text-lg font-semibold py-4 px-4 rounded-xl hover:bg-purple-50 hover:text-primary-purple transition-colors">Profesori</a>
+				<a href="#about" class="mobile-link text-lg font-semibold py-4 px-4 rounded-xl hover:bg-purple-50 hover:text-primary-purple transition-colors">Despre</a>
+				<a href="#contact" class="mobile-link text-lg font-semibold py-4 px-4 rounded-xl hover:bg-purple-50 hover:text-primary-purple transition-colors">Contact</a>
+			</nav>
+			<div class="px-6 py-6 border-t border-border-color">
+				<a href="#contact" class="mobile-link block w-full text-center px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple shadow-lg">Înscrie-te Gratuit</a>
+			</div>
+		</div>
+
+		<!-- ===== NAVBAR ===== -->
+		<nav class="sticky top-0 z-[1000] bg-white shadow-md py-3 md:py-4">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex justify-between items-center gap-4">
+				<a href="/"><img src="/img/Logo.png" alt="Examen.md" class="h-7 md:h-8 w-auto max-w-[160px] object-contain" /></a>
+				<ul class="hidden lg:flex list-none gap-8 flex-1">
+					<li><a href="#courses" class="font-medium hover:text-primary-purple transition-colors">Cursuri</a></li>
+					<li><a href="#teachers" class="font-medium hover:text-primary-purple transition-colors">Profesori</a></li>
+					<li><a href="#about" class="font-medium hover:text-primary-purple transition-colors">Despre</a></li>
+					<li><a href="#contact" class="font-medium hover:text-primary-purple transition-colors">Contact</a></li>
+				</ul>
+				<div class="flex items-center gap-3">
+					<a href="#contact" class="hidden lg:inline-block px-6 xl:px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te</a>
+					<button id="open-menu" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 gap-1.5" aria-label="Meniu">
+						<span id="line1" class="hamburger-line block w-5 h-0.5 bg-text-dark rounded-full"></span>
+						<span id="line2" class="hamburger-line block w-5 h-0.5 bg-text-dark rounded-full"></span>
+						<span id="line3" class="hamburger-line block w-5 h-0.5 bg-text-dark rounded-full"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			
+<!-- ===== HERO ===== -->
+<section class="bg-gradient-to-br from-purple-50 to-violet-100 py-14 md:py-24 min-h-[calc(100vh-56px)] flex items-center">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+			<div class="space-y-5 md:space-y-6 text-center lg:text-left">
+				<h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Pregătire de Examene cu Profesori Calificați</h1>
+				<p class="text-base sm:text-lg text-text-light leading-relaxed">Cursuri online și offline la toate disciplinele școlare. Ai probleme cu temele? Vrei note excelente? Înscrie-te la lecții adăugătoare!</p>
+				<div class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center lg:justify-start">
+					<a href="#contact" class="px-8 sm:px-12 py-3.5 sm:py-4 text-base sm:text-lg rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple hover:-translate-y-0.5 hover:shadow-xl transition-all">Lecție Gratuită</a>
+					<a href="#courses" class="px-8 sm:px-12 py-3.5 sm:py-4 text-base sm:text-lg rounded-full font-semibold text-primary-purple border-2 border-primary-purple hover:bg-primary-purple hover:text-white transition-all">Vezi Cursurile</a>
+				</div>
+				<div class="grid grid-cols-3 gap-4 md:gap-8 pt-4">
+					<div>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">98%</h3>
+						<p class="text-xs sm:text-sm text-text-light">Rata de succes</p>
+					</div>
+					<div>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">10,542</h3>
+						<p class="text-xs sm:text-sm text-text-light">Elevi mulțumiți</p>
+					</div>
+					<div>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">30+</h3>
+						<p class="text-xs sm:text-sm text-text-light">Profesori</p>
+					</div>
+				</div>
+			</div>
+			<div class="order-first lg:order-last">
+				<div id="hero-carousel" class="relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full">
+					<img src="/img/img1.png" alt="Pregătire examene" class="hero-slide active w-full" />
+					<img src="/img/img2.png" alt="Pregătire examene" class="hero-slide w-full" />
+					<img src="/img/img3.png" alt="Pregătire examene" class="hero-slide w-full" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="py-16 md:py-24 bg-light-bg">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-10">De ce să alegi Examen.md?</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+						<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+						<path d="M22 10v6" />
+						<path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+					</svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Profesori Calificați</h3>
+				<p class="text-text-light text-sm">Fiecare profesor predă 100% corect din punct de vedere științific.</p>
+			</div>
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Predare Față în Față</h3>
+				<p class="text-text-light text-sm">Ore online și offline. Învață eficient cu profesorul.</p>
+			</div>
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Asistență Profesor</h3>
+				<p class="text-text-light text-sm">Profesorii răspund la întrebări pe Viber/Telegram.</p>
+			</div>
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+					</svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Orientare spre Rezultat</h3>
+				<p class="text-text-light text-sm">Garantăm susținerea cu brio a examenului.</p>
+			</div>
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Răbdare și Înțelegere</h3>
+				<p class="text-text-light text-sm">Niciun profesor nu se enervează pe niciun elev.</p>
+			</div>
+			<div class="bg-white p-6 md:p-8 rounded-xl shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+				<div class="flex justify-center mb-4">
+					<svg class="w-14 h-14 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
+				</div>
+				<h3 class="font-display text-xl font-bold mb-2">Creștere Continuă</h3>
+				<p class="text-text-light text-sm">Profesorii fac training săptămânal cu specialiști.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== COURSES ===== -->
+<section id="courses" class="py-16 md:py-24 bg-light-bg">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Cursurile Noastre</h2>
+		<p class="text-center text-text-light text-base md:text-lg mb-10">Pregătire de examen la orice disciplină</p>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
+				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Meditații la Orice Disciplină</h3>
+				<p class="text-primary-orange font-semibold text-sm mb-4">Teste, Teze (Cl. 1-12)</p>
+				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
+					<p><strong>Perioada:</strong> 12 săptămâni</p>
+					<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
+					<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
+					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+				</div>
+				<div class="mb-5 space-y-3 text-sm">
+					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 813 MDL</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">419 MDL (8%)</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 744 MDL</strong></div>
+				</div>
+				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
+				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
+			</div>
+
+			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
+				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Curs Matematică: BAC 2026</h3>
+				<p class="text-primary-orange font-semibold text-sm mb-4">De la Zero / Examen Cl. 9</p>
+				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
+					<p><strong>Perioada:</strong> 12 săptămâni</p>
+					<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
+					<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
+					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+				</div>
+				<div class="mb-5 space-y-3 text-sm">
+					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 813 MDL</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">419 MDL (8%)</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 744 MDL</strong></div>
+				</div>
+				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
+				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
+			</div>
+
+			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
+				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Limba Engleză</h3>
+				<p class="text-primary-orange font-semibold text-sm mb-4">Prin Metoda Asimilării (Conversațional)</p>
+				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
+					<p><strong>Perioada:</strong> 12 săptămâni</p>
+					<p><strong>Frecvență:</strong> 3 sesiuni/săptămână (60 min/sesiune)</p>
+					<p><strong>Format:</strong> ECONOM (8 elevi/grup)</p>
+					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 328 MDL (36 sesiuni)</p>
+				</div>
+				<div class="mb-5 space-y-3 text-sm">
+					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 902 MDL</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">426 MDL (8%)</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 776 MDL</strong></div>
+				</div>
+				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
+				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== TEACHERS ===== -->
+<section id="teachers" class="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-violet-50">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Profesorii Noștri</h2>
+		<p class="text-center text-text-light text-base md:text-lg mb-10">Profesioniști cu pasiune pentru educație</p>
+		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
+				<img src="/img/prof4.png" alt="Cobzari Ion" class="w-full h-40 sm:h-48 object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Cobzari Ion</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 9-12</small></p>
+			</div>
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
+				<img src="/img/prof1.png" alt="Ovidiu Harunjen" class="w-full h-40 sm:h-48 object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Ovidiu Harunjen</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 10-12</small></p>
+			</div>
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
+				<img src="/img/prof2.png" alt="Rodica Gotca" class="w-full h-40 sm:h-48 object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Rodica Gotca</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">Profesoară Lb. Română<br /><small>Clasele 10-12</small></p>
+			</div>
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
+				<img src="/img/prof5.png" alt="Usurelu Cosmin" class="w-full h-40 sm:h-48 object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Usurelu Cosmin</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 7-9</small></p>
+			</div>
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative col-span-2 sm:col-span-1">
+				<img src="/img/prof3.png" alt="Diana Mocanu" class="w-full h-40 sm:h-48 object-cover" />
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Diana Mocanu</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">Profesoară Istorie<br /><small>Clasele 5-12</small></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-16 md:py-24">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-4">Despre Examen.md</h2>
+		<div class="max-w-2xl mx-auto text-center text-base md:text-lg leading-relaxed space-y-4 mb-10">
+			<p class="text-text-light">Suntem cea mai mare școală de meditații din Republica Moldova. Oferim cursuri eficiente de pregătire pentru examene și teme, în regim online și offline.</p>
+			<p class="text-text-light">Profesorii noștri sunt competenți și predau cu pasiune, asigurându-se că fiecare elev înțelege materia și progresează.</p>
+		</div>
+		<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="400" data-suffix="+">0</h3>
+				<p class="text-white/90 text-sm">Exerciții rezolvate</p>
+			</div>
+			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="10542" data-suffix="" data-separator=",">0</h3>
+				<p class="text-white/90 text-sm">Elevi mulțumiți</p>
+			</div>
+			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="30" data-suffix="+">0</h3>
+				<p class="text-white/90 text-sm">Profesori</p>
+			</div>
+			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="98" data-suffix="%">0</h3>
+				<p class="text-white/90 text-sm">Rata de succes</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section id="map" class="py-16 md:py-24 bg-light-bg">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Localizare</h2>
+		<p class="text-center text-text-light mb-10">Găsește-ne pe hartă</p>
+		<div class="rounded-xl overflow-hidden shadow-md">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.6883363146043!2d28.361619!3d47.1614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1d3e6f9e6f9e7%3A0x4c4f4f4f4f4f4f4f!2sstr.%20Ismail%2044%2C%20Chi%C8%99in%C4%83u!5e0!3m2!1sro!2smd!4v1234567890" width="100%" height="300" style="border: 0; display: block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="sm:h-[450px]"></iframe>
+		</div>
+	</div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-16 md:py-24">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Contactează-ne</h2>
+		<p class="text-center text-text-light mb-10">Înscrie-te la o lecție de probă gratuită</p>
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+			<form class="bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-md">
+				<div class="mb-5">
+					<label class="block font-semibold mb-2 text-sm">Nume și Prenume</label>
+					<input type="text" placeholder="Ionescu Ana" required class="w-full px-3.5 py-3 border border-border-color rounded-lg text-sm focus:outline-none focus:border-primary-purple focus:ring-2 focus:ring-purple-100 transition-all" />
+				</div>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+					<div>
+						<label class="block font-semibold mb-2 text-sm">Email</label>
+						<input type="email" placeholder="example@email.com" required class="w-full px-3.5 py-3 border border-border-color rounded-lg text-sm focus:outline-none focus:border-primary-purple focus:ring-2 focus:ring-purple-100 transition-all" />
+					</div>
+					<div>
+						<label class="block font-semibold mb-2 text-sm">Telefon</label>
+						<input type="tel" placeholder="+373 78 555 855" required class="w-full px-3.5 py-3 border border-border-color rounded-lg text-sm focus:outline-none focus:border-primary-purple focus:ring-2 focus:ring-purple-100 transition-all" />
+					</div>
+				</div>
+				<div class="grid grid-cols-2 gap-4 mb-5">
+					<div>
+						<label class="block font-semibold mb-2 text-sm">Clasa</label>
+						<select required class="w-full px-3.5 py-3 border border-border-color rounded-lg text-sm focus:outline-none focus:border-primary-purple focus:ring-2 focus:ring-purple-100 transition-all">
+							<option value="">-- Selectează --</option>
+							<option>Clasa 1</option>
+							<option>Clasa 5</option>
+							<option>Clasa 9</option>
+							<option>Clasa 12</option>
+						</select>
+					</div>
+					<div>
+						<label class="block font-semibold mb-2 text-sm">Disciplina</label>
+						<select required class="w-full px-3.5 py-3 border border-border-color rounded-lg text-sm focus:outline-none focus:border-primary-purple focus:ring-2 focus:ring-purple-100 transition-all">
+							<option value="">-- Selectează --</option>
+							<option>Matematică</option>
+							<option>Limba Română</option>
+							<option>Limba Engleză</option>
+							<option>Istorie</option>
+						</select>
+					</div>
+				</div>
+				<div class="mb-6">
+					<label class="block font-semibold mb-2 text-sm">Format curs</label>
+					<div class="flex gap-6 mt-2">
+						<label class="flex items-center gap-2 cursor-pointer font-medium text-sm"><input type="radio" name="format" value="online" checked /> Online</label>
+						<label class="flex items-center gap-2 cursor-pointer font-medium text-sm"><input type="radio" name="format" value="offline" /> Offline</label>
+					</div>
+				</div>
+				<button type="submit" class="w-full py-4 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple hover:-translate-y-0.5 hover:shadow-lg transition-all">Înscrie-te la Lecție Gratuită</button>
+			</form>
+			<div class="space-y-5 md:space-y-8">
+				<div class="bg-light-bg p-6 md:p-8 rounded-xl border-l-4 border-primary-purple">
+					<div class="flex items-center gap-2 mb-3">
+						<svg class="w-5 h-5 text-primary-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+							<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+							<circle cx="12" cy="10" r="3" />
+						</svg>
+						<h3 class="text-primary-purple font-display text-lg font-bold">Locație</h3>
+					</div>
+					<p class="text-text-light text-sm leading-relaxed">str. Ismail 44<br />Intersecția str. 31 August cu str. Ismail<br />Chișinău, MD</p>
+				</div>
+				<div class="bg-light-bg p-6 md:p-8 rounded-xl border-l-4 border-primary-purple">
+					<div class="flex items-center gap-2 mb-3">
+						<svg class="w-5 h-5 text-primary-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
+						<h3 class="text-primary-purple font-display text-lg font-bold">Contact</h3>
+					</div>
+					<p class="text-text-light text-sm leading-relaxed"><strong>Telefon:</strong> +373 68 334 060<br /><strong>Email:</strong> contact@examen.md</p>
+				</div>
+				<div class="bg-light-bg p-6 md:p-8 rounded-xl border-l-4 border-primary-purple">
+					<div class="flex items-center gap-2 mb-3">
+						<svg class="w-5 h-5 text-primary-purple shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+							<circle cx="12" cy="12" r="10" />
+							<path d="M12 6v6l4 2" />
+						</svg>
+						<h3 class="text-primary-purple font-display text-lg font-bold">Program</h3>
+					</div>
+					<p class="text-text-light text-sm leading-relaxed"><strong>Luni - Sâmbătă:</strong> 10:00 - 20:00<br /><strong>Duminică:</strong> Zi liberă</p>
+				</div>
+				<div class="lg:hidden bg-purple-50 p-5 rounded-xl text-center">
+					<p class="text-primary-purple font-semibold text-sm mb-3">Sună-ne direct!</p>
+					<a href="tel:+37368334060" class="inline-block px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-sm">📞 Sună Acum</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		</main>
+
+		<!-- ===== FOOTER ===== -->
+		<footer class="bg-dark-bg text-white py-10 md:py-12">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 pb-8 border-b border-white/10">
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Examen.md</h4>
+						<ul class="list-none space-y-2">
+							<li><a href="#courses" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Cursuri</a></li>
+							<li><a href="#teachers" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Profesori</a></li>
+							<li><a href="#about" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Despre</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Informații</h4>
+						<ul class="list-none space-y-2">
+							<li><a href="#" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Termene și Condiții</a></li>
+							<li><a href="#" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Confidențialitate</a></li>
+							<li><a href="#" class="text-white/70 hover:text-primary-purple text-sm transition-colors">Date Firmă</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4 class="text-primary-purple font-display text-lg font-bold mb-4">Contact</h4>
+						<p class="text-white/70 text-sm space-y-1">
+							<span class="flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone w-4 h-4" aria-hidden="true">
+									<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+								</svg>
+								<span>+373 68 334 060</span>
+							</span>
+							<span class="flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail w-4 h-4" aria-hidden="true">
+									<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+									<rect x="2" y="4" width="20" height="16" rx="2" />
+								</svg>
+								<span>contact@examen.md</span>
+							</span>
+						</p>
+					</div>
+				</div>
+				<p class="text-center text-white/60 text-xs">&copy; 2024 Examen.md. Toate drepturile rezervate.</p>
+			</div>
+		</footer>
+
+		<!-- ===== MASCOT ===== -->
+		<div id="mascot-peek">
+			<img src="/img/mascot.png" alt="Mascota" />
+		</div>
+
+		<div id="mascot-wrapper">
+			<div id="mascot-bubble">
+				<button id="bubble-close" aria-label="Închide" style="position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; background: #a535f0; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center">
+					<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+						<line x1="2" y1="2" x2="8" y2="8" />
+						<line x1="8" y1="2" x2="2" y2="8" />
+					</svg>
+				</button>
+
+				<p style="margin: 0 0 4px 0; font-family: &quot;Playfair Display&quot;, serif; font-weight: 700; font-size: 14px; color: #a535f0">Bun venit la Examen.md!</p>
+				<p style="margin: 0 0 10px 0; font-size: 12px; color: #666; line-height: 1.6">Pregătire cu profesori calificați. Înscrie-te la o <strong style="color: #1a1a1a">lecție gratuită</strong> astăzi!</p>
+				<p style="margin: 0 0 8px 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #999; font-weight: 600">Contactează-ne pe:</p>
+
+				<div style="display: flex; gap: 8px">
+					<a href="https://facebook.com" target="_blank" rel="noopener" class="mascot-social" style="background: #1877f2">
+						<span class="tip">Facebook</span>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+					</a>
+					<a href="https://www.instagram.com/examen.md/" target="_blank" rel="noopener" class="mascot-social" style="background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7)">
+						<span class="tip">Instagram</span>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+					</a>
+					<a href="https://wa.me/37368334060" target="_blank" rel="noopener" class="mascot-social" style="background: #25d366">
+						<span class="tip">WhatsApp</span>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" /></svg>
+					</a>
+					<a href="https://t.me/examenmd" target="_blank" rel="noopener" class="mascot-social" style="background: #229ed9">
+						<span class="tip">Telegram</span>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" /></svg>
+					</a>
+				</div>
+			</div>
+
+			<div id="mascot-img-wrap" style="cursor: pointer; align-self: flex-end; filter: drop-shadow(0 8px 18px rgba(165, 53, 240, 0.3))">
+				<img id="mascot-img" src="/img/mascot.png" alt="Mascota Examen.md" />
+			</div>
+		</div>
+
+		<!-- ===== SCRIPTS ===== -->
+		<script>
+			/* ── Mobile menu ── */
+			const openBtn = document.getElementById("open-menu");
+			const closeBtn = document.getElementById("close-menu");
+			const menu = document.getElementById("mobile-menu");
+
+			function openMenu() {
+				menu.classList.remove("hidden");
+				document.body.classList.add("menu-open");
+				document.body.style.overflow = "hidden";
+			}
+			function closeMenu() {
+				menu.classList.add("hidden");
+				document.body.classList.remove("menu-open");
+				document.body.style.overflow = "";
+			}
+
+			openBtn.addEventListener("click", openMenu);
+			closeBtn.addEventListener("click", closeMenu);
+			document.querySelectorAll(".mobile-link").forEach((l) => l.addEventListener("click", closeMenu));
+			menu.addEventListener("click", (e) => {
+				if (e.target === menu) closeMenu();
+			});
+
+			/* ── Hero Carousel ── */
+			(function () {
+				const slides = document.querySelectorAll("#hero-carousel .hero-slide");
+				if (slides.length) {
+					let current = 0;
+					setInterval(() => {
+						slides[current].classList.remove("active");
+						current = (current + 1) % slides.length;
+						slides[current].classList.add("active");
+					}, 4000);
+				}
+			})();
+
+			/* ── Counter Animation ── */
+			(function () {
+				const counters = document.querySelectorAll('.counter');
+				const duration = 2000;
+
+				function animateCounter(el) {
+					const target = parseInt(el.dataset.target);
+					const suffix = el.dataset.suffix || '';
+					const separator = el.dataset.separator || '';
+					const start = performance.now();
+
+					function update(now) {
+						const progress = Math.min((now - start) / duration, 1);
+						const eased = 1 - Math.pow(1 - progress, 3);
+						const current = Math.floor(eased * target);
+						el.textContent = (separator ? current.toLocaleString('en-US') : current) + suffix;
+						if (progress < 1) requestAnimationFrame(update);
+					}
+					requestAnimationFrame(update);
+				}
+
+				const observer = new IntersectionObserver(function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							animateCounter(entry.target);
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.5 });
+
+				counters.forEach(function (c) { observer.observe(c); });
+			})();
+
+			/* ── Mascot ── */
+			const wrapper = document.getElementById("mascot-wrapper");
+			const bubble = document.getElementById("mascot-bubble");
+			const bubbleClose = document.getElementById("bubble-close");
+			const imgWrap = document.getElementById("mascot-img-wrap");
+			const mascotImg = document.getElementById("mascot-img");
+			const peek = document.getElementById("mascot-peek");
+
+			setTimeout(() => { wrapper.classList.add("visible"); }, 2500);
+			imgWrap.addEventListener("click", () => bubble.classList.toggle("open"));
+			bubbleClose.addEventListener("click", (e) => { e.stopPropagation(); bubble.classList.remove("open"); });
+			imgWrap.addEventListener("dblclick", () => {
+				bubble.classList.remove("open");
+				wrapper.classList.remove("visible");
+				setTimeout(() => peek.classList.add("visible"), 500);
+			});
+			peek.addEventListener("click", () => { peek.classList.remove("visible"); wrapper.classList.add("visible"); });
+			setInterval(() => {
+				if (!wrapper.classList.contains("visible")) return;
+				mascotImg.classList.add("wiggle");
+				mascotImg.addEventListener("animationend", () => mascotImg.classList.remove("wiggle"), { once: true });
+			}, 8000);
+		</script>
+	</body>
+</html>
