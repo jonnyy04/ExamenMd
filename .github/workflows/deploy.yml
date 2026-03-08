@@ -31,7 +31,9 @@ jobs:
               run: npm ci
 
             - name: Build with Eleventy
-              run: npx eleventy
+              run: npx eleventy --pathprefix=/ExamenMd/
+              env:
+                  PATH_PREFIX: /ExamenMd/
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
