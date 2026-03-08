@@ -198,6 +198,68 @@
 				}
 			})();
 
+			/* ── Course Carousel ── */
+			(function () {
+				const track = document.getElementById("course-track");
+				const prevBtn = document.getElementById("course-prev");
+				const nextBtn = document.getElementById("course-next");
+				const dotsWrap = document.getElementById("course-dots");
+				if (!track) return;
+
+				const slides = track.querySelectorAll(".course-slide");
+				const total = slides.length;
+				let page = 0;
+
+				function getPerPage() {
+					if (window.innerWidth >= 1024) return 3;
+					if (window.innerWidth >= 640) return 2;
+					return 1;
+				}
+
+				function getPages() {
+					return Math.max(1, Math.ceil(total / getPerPage()));
+				}
+
+				function buildDots() {
+					dotsWrap.innerHTML = "";
+					var pages = getPages();
+					if (pages <= 1) return;
+					for (var i = 0; i < pages; i++) {
+						var dot = document.createElement("button");
+						dot.className = "w-2.5 h-2.5 rounded-full transition-all " + (i === page ? "bg-primary-purple scale-125" : "bg-gray-300 hover:bg-gray-400");
+						dot.setAttribute("aria-label", "Pagina " + (i + 1));
+						dot.dataset.page = i;
+						dot.addEventListener("click", function () { goTo(parseInt(this.dataset.page)); });
+						dotsWrap.appendChild(dot);
+					}
+				}
+
+				function goTo(p) {
+					var pages = getPages();
+					page = Math.max(0, Math.min(p, pages - 1));
+					var perPage = getPerPage();
+					var gap = 16; /* 1rem = 16px */
+					var containerWidth = track.parentElement.offsetWidth;
+					var slideWidth = (containerWidth - gap * (perPage - 1)) / perPage;
+					var offset = page * perPage * (slideWidth + gap);
+					var maxOffset = total * (slideWidth + gap) - gap - containerWidth;
+					track.style.transform = "translateX(-" + Math.min(offset, Math.max(0, maxOffset)) + "px)";
+					buildDots();
+					if (prevBtn) prevBtn.style.display = pages <= 1 ? "none" : "";
+					if (nextBtn) nextBtn.style.display = pages <= 1 ? "none" : "";
+				}
+
+				if (prevBtn) prevBtn.addEventListener("click", function () { goTo(page - 1); });
+				if (nextBtn) nextBtn.addEventListener("click", function () { goTo(page + 1); });
+
+				goTo(0);
+				var resizeTimer;
+				window.addEventListener("resize", function () {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(function () { goTo(page); }, 150);
+				});
+			})();
+
 			/* ── Teacher Carousel ── */
 			(function () {
 				const track = document.getElementById("teacher-track");

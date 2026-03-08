@@ -1,3 +1,20 @@
+/* ── Course Carousel (responsive widths) ── */
+@media (max-width: 639px) {
+	.course-slide {
+		width: 100% !important;
+	}
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+	.course-slide {
+		width: calc((100% - 1rem) / 2) !important;
+	}
+}
+@media (min-width: 1024px) {
+	.course-card {
+		transform: none;
+	}
+}
+
 /* ── Teacher Carousel (responsive widths) ── */
 @media (max-width: 639px) {
 	.teacher-slide {
@@ -27,13 +44,7 @@
 	opacity: 1;
 }
 
-/* ── Course cards scale ── */
-@media (min-width: 1024px) {
-	.course-card {
-		transform: scale(0.93);
-		transform-origin: top center;
-	}
-}
+/* ── Course cards scale (handled by carousel) ── */
 
 /* ── Mobile menu ── */
 #mobile-menu {
