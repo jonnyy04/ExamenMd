@@ -127,19 +127,37 @@ layout: layout.njk
 </section>
 
 <!-- ===== TEACHERS ===== -->
-<section id="teachers" class="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-violet-50">
+<section id="teachers" class="py-16 md:py-24" style="background: linear-gradient(135deg, #a535f0 0%, #1a0033 40%, #2d1052 70%, #a535f0 100%)">
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Profesorii Noștri</h2>
-		<p class="text-center text-text-light text-base md:text-lg mb-10">Profesioniști cu pasiune pentru educație</p>
-		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
-			{%- for teacher in collections.teachers -%}
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative{% if loop.last and collections.teachers.length is odd(5) %} col-span-2 sm:col-span-1{% endif %}">
-				<img src="{{ teacher.data.photo }}" alt="{{ teacher.data.title }}" class="w-full h-40 sm:h-48 object-cover" />
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">{{ teacher.data.title }}</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">{{ teacher.data.subject }}<br /><small>{{ teacher.data.classes }}</small></p>
+		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3 text-white">Profesorii Noștri</h2>
+		<p class="text-center text-purple-300 text-base md:text-lg mb-10">Profesioniști cu pasiune pentru educație</p>
+		<div class="relative">
+			<!-- Carousel navigation -->
+			<button id="teacher-prev" class="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-primary-purple/80 hover:bg-primary-purple text-white shadow-lg transition-all" aria-label="Anterior">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+			</button>
+			<button id="teacher-next" class="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-primary-purple/80 hover:bg-primary-purple text-white shadow-lg transition-all" aria-label="Următor">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+			</button>
+
+			<!-- Carousel track -->
+			<div id="teacher-carousel" class="overflow-hidden">
+				<div id="teacher-track" class="flex transition-transform duration-500 ease-in-out" style="gap: 1.25rem">
+					{%- for teacher in collections.teachers -%}
+					<div class="teacher-slide flex-shrink-0" style="width: calc((100% - 5rem) / 5)">
+						<div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden text-center hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group relative">
+							<img src="{{ teacher.data.photo }}" alt="{{ teacher.data.title }}" class="w-full h-40 sm:h-48 object-cover" />
+							<div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
+							<h3 class="font-display text-sm md:text-base font-bold px-3 py-2 text-white">{{ teacher.data.title }}</h3>
+							<p class="px-3 pb-3 text-xs text-purple-200">{{ teacher.data.subject }}<br /><small class="text-purple-300/70">{{ teacher.data.classes }}</small></p>
+						</div>
+					</div>
+					{%- endfor -%}
+				</div>
 			</div>
-			{%- endfor -%}
+
+			<!-- Dots -->
+			<div id="teacher-dots" class="flex justify-center gap-2 mt-6"></div>
 		</div>
 	</div>
 </section>

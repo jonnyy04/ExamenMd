@@ -198,6 +198,68 @@
 				}
 			})();
 
+			/* ── Teacher Carousel ── */
+			(function () {
+				const track = document.getElementById("teacher-track");
+				const prevBtn = document.getElementById("teacher-prev");
+				const nextBtn = document.getElementById("teacher-next");
+				const dotsWrap = document.getElementById("teacher-dots");
+				if (!track) return;
+
+				const slides = track.querySelectorAll(".teacher-slide");
+				const total = slides.length;
+				let page = 0;
+
+				function getPerPage() {
+					if (window.innerWidth >= 1024) return 5;
+					if (window.innerWidth >= 640) return 3;
+					return 2;
+				}
+
+				function getPages() {
+					return Math.max(1, Math.ceil(total / getPerPage()));
+				}
+
+				function buildDots() {
+					dotsWrap.innerHTML = "";
+					var pages = getPages();
+					if (pages <= 1) return;
+					for (var i = 0; i < pages; i++) {
+						var dot = document.createElement("button");
+						dot.className = "w-2.5 h-2.5 rounded-full transition-all " + (i === page ? "bg-primary-purple scale-125" : "bg-white/40 hover:bg-white/60");
+						dot.setAttribute("aria-label", "Pagina " + (i + 1));
+						dot.dataset.page = i;
+						dot.addEventListener("click", function () { goTo(parseInt(this.dataset.page)); });
+						dotsWrap.appendChild(dot);
+					}
+				}
+
+				function goTo(p) {
+					var pages = getPages();
+					page = Math.max(0, Math.min(p, pages - 1));
+					var perPage = getPerPage();
+					var gap = 20; /* 1.25rem = 20px */
+					var containerWidth = track.parentElement.offsetWidth;
+					var slideWidth = (containerWidth - gap * (perPage - 1)) / perPage;
+					var offset = page * perPage * (slideWidth + gap);
+					var maxOffset = total * (slideWidth + gap) - gap - containerWidth;
+					track.style.transform = "translateX(-" + Math.min(offset, Math.max(0, maxOffset)) + "px)";
+					buildDots();
+					if (prevBtn) prevBtn.style.display = pages <= 1 ? "none" : "";
+					if (nextBtn) nextBtn.style.display = pages <= 1 ? "none" : "";
+				}
+
+				if (prevBtn) prevBtn.addEventListener("click", function () { goTo(page - 1); });
+				if (nextBtn) nextBtn.addEventListener("click", function () { goTo(page + 1); });
+
+				goTo(0);
+				var resizeTimer;
+				window.addEventListener("resize", function () {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(function () { goTo(page); }, 150);
+				});
+			})();
+
 			/* ── Counter Animation ── */
 			(function () {
 				const counters = document.querySelectorAll('.counter');

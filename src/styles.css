@@ -1,3 +1,15 @@
+/* ── Teacher Carousel (responsive widths) ── */
+@media (max-width: 639px) {
+	.teacher-slide {
+		width: calc((100% - 1.25rem) / 2) !important;
+	}
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+	.teacher-slide {
+		width: calc((100% - 2.5rem) / 3) !important;
+	}
+}
+
 /* ── Hero carousel ── */
 #hero-carousel {
 	position: relative;
