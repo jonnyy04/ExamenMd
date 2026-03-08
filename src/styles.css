@@ -1,0 +1,267 @@
+/* ── Hero carousel ── */
+#hero-carousel {
+	position: relative;
+	overflow: hidden;
+}
+#hero-carousel .hero-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+#hero-carousel .hero-slide.active {
+	position: relative;
+	opacity: 1;
+}
+
+/* ── Course cards scale ── */
+@media (min-width: 1024px) {
+	.course-card {
+		transform: scale(0.93);
+		transform-origin: top center;
+	}
+}
+
+/* ── Mobile menu ── */
+#mobile-menu {
+	transition:
+		opacity 0.25s ease,
+		visibility 0.25s ease;
+}
+#mobile-menu.hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+#mobile-menu:not(.hidden) {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+}
+.hamburger-line {
+	transition:
+		transform 0.3s ease,
+		opacity 0.2s ease;
+	transform-origin: center;
+}
+body.menu-open #line1 {
+	transform: rotate(45deg) translate(5px, 5px);
+}
+body.menu-open #line2 {
+	opacity: 0;
+	transform: scaleX(0);
+}
+body.menu-open #line3 {
+	transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Mascot keyframes ── */
+@keyframes mascotIdle {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-6px) rotate(3deg);
+	}
+	75% {
+		transform: translateY(-4px) rotate(-3deg);
+	}
+}
+@keyframes mascotHover {
+	0% {
+		transform: translateY(0) rotate(-5deg) scale(1);
+	}
+	100% {
+		transform: translateY(-14px) rotate(5deg) scale(1.05);
+	}
+}
+@keyframes mascotWiggle {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	15% {
+		transform: rotate(-12deg);
+	}
+	30% {
+		transform: rotate(12deg);
+	}
+	45% {
+		transform: rotate(-8deg);
+	}
+	60% {
+		transform: rotate(8deg);
+	}
+	75% {
+		transform: rotate(-4deg);
+	}
+}
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes bubblePop {
+	from {
+		opacity: 0;
+		transform: scale(0.85) translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+@keyframes peekBob {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+/* ── Mascot layout & states ── */
+#mascot-wrapper {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 10px;
+	opacity: 0;
+	pointer-events: none;
+}
+#mascot-wrapper.visible {
+	animation: slideUp 0.5s ease forwards;
+	pointer-events: all;
+}
+
+#mascot-bubble {
+	display: none;
+	position: relative;
+	background: #fff;
+	border: 2px solid #a535f0;
+	border-radius: 4px 18px 4px 18px;
+	padding: 14px 16px;
+	width: 242px;
+	box-shadow: 0 8px 32px rgba(165, 53, 240, 0.2);
+	font-family: "Poppins", sans-serif;
+}
+#mascot-bubble.open {
+	display: block;
+	animation: bubblePop 0.35s ease forwards;
+}
+
+#mascot-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transform-origin: bottom center;
+	animation: mascotIdle 3s ease-in-out infinite;
+}
+#mascot-img-wrap:hover #mascot-img {
+	animation: mascotHover 0.5s ease infinite alternate;
+}
+#mascot-img.wiggle {
+	animation: mascotWiggle 0.7s ease !important;
+}
+
+/* Mascot size (responsive) */
+#mascot-img-wrap {
+	width: 92px;
+	height: 92px;
+}
+@media (min-width: 640px) {
+	#mascot-img-wrap {
+		width: 100px;
+		height: 100px;
+	}
+}
+@media (min-width: 1024px) {
+	#mascot-img-wrap {
+		width: 180px; /* mai mare decât 124px */
+		height: 180px; /* mai mare decât 124px */
+	}
+
+	#mascot-bubble {
+		width: 350px; /* mai mare decât 290px */
+		min-height: 220px; /* mai mare decât 190px */
+		padding: 20px 22px;
+	}
+}
+
+/* Social tooltip */
+.mascot-social {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	flex-shrink: 0;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+	text-decoration: none;
+}
+.mascot-social:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+.mascot-social .tip {
+	position: absolute;
+	bottom: calc(100% + 6px);
+	left: 50%;
+	transform: translateX(-50%);
+	background: #1a1a1a;
+	color: #fff;
+	font-size: 10px;
+	padding: 3px 8px;
+	border-radius: 5px;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+}
+.mascot-social:hover .tip {
+	opacity: 1;
+}
+
+/* Peek */
+#mascot-peek {
+	position: fixed;
+	bottom: 0;
+	right: 32px;
+	z-index: 9998;
+	width: 64px;
+	cursor: pointer;
+	opacity: 0;
+	transform: translateY(64px);
+	pointer-events: none;
+	transition:
+		opacity 0.4s ease,
+		transform 0.5s ease;
+	filter: drop-shadow(0 -4px 10px rgba(165, 53, 240, 0.25));
+}
+#mascot-peek.visible {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: all;
+}
+#mascot-peek img {
+	display: block;
+	width: 100%;
+	animation: peekBob 2s ease-in-out infinite;
+}
