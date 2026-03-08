@@ -44,6 +44,18 @@
 	opacity: 1;
 }
 
+/* ── Review Carousel (responsive widths) ── */
+@media (max-width: 639px) {
+	.review-slide {
+		width: 100% !important;
+	}
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+	.review-slide {
+		width: calc((100% - 1rem) / 2) !important;
+	}
+}
+
 /* ── Course cards scale (handled by carousel) ── */
 
 /* ── Mobile menu ── */

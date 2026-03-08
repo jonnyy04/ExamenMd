@@ -23,6 +23,12 @@ module.exports = function (eleventyConfig) {
 		});
 	});
 
+	eleventyConfig.addCollection("reviews", function (collectionApi) {
+		return collectionApi.getFilteredByGlob("src/reviews/*.md").sort((a, b) => {
+			return (a.data.order || 0) - (b.data.order || 0);
+		});
+	});
+
 	return {
 		pathPrefix: process.env.PATH_PREFIX || "/",
 		dir: {
