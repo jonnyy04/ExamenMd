@@ -16,15 +16,15 @@ layout: layout.njk
 				</div>
 				<div class="grid grid-cols-3 gap-4 md:gap-8 pt-4">
 					<div>
-						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">98%</h3>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">{{ stats.success_rate }}%</h3>
 						<p class="text-xs sm:text-sm text-text-light">Rata de succes</p>
 					</div>
 					<div>
-						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">10,542</h3>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">{{ stats.students | localeString }}</h3>
 						<p class="text-xs sm:text-sm text-text-light">Elevi mulțumiți</p>
 					</div>
 					<div>
-						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">30+</h3>
+						<h3 class="font-display text-3xl md:text-4xl font-bold text-primary-purple">{{ stats.teachers_count }}</h3>
 						<p class="text-xs sm:text-sm text-text-light">Profesori</p>
 					</div>
 				</div>
@@ -103,59 +103,25 @@ layout: layout.njk
 		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Cursurile Noastre</h2>
 		<p class="text-center text-text-light text-base md:text-lg mb-10">Pregătire de examen la orice disciplină</p>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+			{%- for course in collections.courses -%}
 			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
-				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Meditații la Orice Disciplină</h3>
-				<p class="text-primary-orange font-semibold text-sm mb-4">Teste, Teze (Cl. 1-12)</p>
+				<h3 class="font-display text-lg md:text-xl font-bold mb-2">{{ course.data.title }}</h3>
+				<p class="text-primary-orange font-semibold text-sm mb-4">{{ course.data.subtitle }}</p>
 				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
-					<p><strong>Perioada:</strong> 12 săptămâni</p>
-					<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
-					<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
-					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
+					<p><strong>Perioada:</strong> {{ course.data.period }}</p>
+					<p><strong>Frecvență:</strong> {{ course.data.frequency }}</p>
+					<p><strong>Format:</strong> {{ course.data.format }}</p>
+					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> {{ course.data.cost }} MDL ({{ course.data.sessions }} sesiuni)</p>
 				</div>
 				<div class="mb-5 space-y-3 text-sm">
-					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 813 MDL</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">419 MDL (8%)</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 744 MDL</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">{{ course.data.full_payment }} MDL</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">{{ course.data.savings }} MDL ({{ course.data.savings_percent }}%)</strong></div>
+					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">{{ course.data.installment }} MDL</strong></div>
 				</div>
 				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
 				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
 			</div>
-
-			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
-				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Curs Matematică: BAC 2026</h3>
-				<p class="text-primary-orange font-semibold text-sm mb-4">De la Zero / Examen Cl. 9</p>
-				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
-					<p><strong>Perioada:</strong> 12 săptămâni</p>
-					<p><strong>Frecvență:</strong> 2 sesiuni/săptămână (60 min/sesiune)</p>
-					<p><strong>Format:</strong> STANDARD (6 elevi/grup)</p>
-					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 232 MDL (24 sesiuni)</p>
-				</div>
-				<div class="mb-5 space-y-3 text-sm">
-					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 813 MDL</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">419 MDL (8%)</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 744 MDL</strong></div>
-				</div>
-				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
-				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
-			</div>
-
-			<div class="course-card bg-white border-2 border-border-color rounded-xl p-6 md:p-8 flex flex-col hover:border-primary-purple hover:shadow-xl transition-all duration-300">
-				<h3 class="font-display text-lg md:text-xl font-bold mb-2">Limba Engleză</h3>
-				<p class="text-primary-orange font-semibold text-sm mb-4">Prin Metoda Asimilării (Conversațional)</p>
-				<div class="flex-grow text-sm leading-relaxed mb-4 space-y-2">
-					<p><strong>Perioada:</strong> 12 săptămâni</p>
-					<p><strong>Frecvență:</strong> 3 sesiuni/săptămână (60 min/sesiune)</p>
-					<p><strong>Format:</strong> ECONOM (8 elevi/grup)</p>
-					<p class="bg-purple-50 p-3 rounded text-primary-purple"><strong>Cost Curs:</strong> 5 328 MDL (36 sesiuni)</p>
-				</div>
-				<div class="mb-5 space-y-3 text-sm">
-					<div class="flex justify-between"><span class="text-text-light">Plată Completă</span><strong class="text-primary-purple">4 902 MDL</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Economisești</span><strong class="text-primary-purple">426 MDL (8%)</strong></div>
-					<div class="flex justify-between"><span class="text-text-light">Plată În Rate</span><strong class="text-primary-purple">1 776 MDL</strong></div>
-				</div>
-				<a href="#contact" class="block w-11/12 mx-auto mb-3 px-6 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-purple to-primary-dark-purple text-center hover:-translate-y-0.5 hover:shadow-lg transition-all text-sm">Înscrie-te Acum!</a>
-				<p class="text-center border-t border-border-color text-green-600 font-semibold text-sm py-3">Prima sesiune de probă: GRATUITĂ!</p>
-			</div>
+			{%- endfor -%}
 		</div>
 	</div>
 </section>
@@ -166,36 +132,14 @@ layout: layout.njk
 		<h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-bold text-center mb-3">Profesorii Noștri</h2>
 		<p class="text-center text-text-light text-base md:text-lg mb-10">Profesioniști cu pasiune pentru educație</p>
 		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
-				<img src="/img/prof4.png" alt="Cobzari Ion" class="w-full h-40 sm:h-48 object-cover" />
+			{%- for teacher in collections.teachers -%}
+			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative{% if loop.last and collections.teachers.length is odd(5) %} col-span-2 sm:col-span-1{% endif %}">
+				<img src="{{ teacher.data.photo }}" alt="{{ teacher.data.title }}" class="w-full h-40 sm:h-48 object-cover" />
 				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Cobzari Ion</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 9-12</small></p>
+				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">{{ teacher.data.title }}</h3>
+				<p class="px-3 pb-3 text-xs text-text-light">{{ teacher.data.subject }}<br /><small>{{ teacher.data.classes }}</small></p>
 			</div>
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
-				<img src="/img/prof1.png" alt="Ovidiu Harunjen" class="w-full h-40 sm:h-48 object-cover" />
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Ovidiu Harunjen</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 10-12</small></p>
-			</div>
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
-				<img src="/img/prof2.png" alt="Rodica Gotca" class="w-full h-40 sm:h-48 object-cover" />
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Rodica Gotca</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">Profesoară Lb. Română<br /><small>Clasele 10-12</small></p>
-			</div>
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative">
-				<img src="/img/prof5.png" alt="Usurelu Cosmin" class="w-full h-40 sm:h-48 object-cover" />
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Usurelu Cosmin</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">Profesor Matematică<br /><small>Clasele 7-9</small></p>
-			</div>
-			<div class="bg-white rounded-xl overflow-hidden shadow-md text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative col-span-2 sm:col-span-1">
-				<img src="/img/prof3.png" alt="Diana Mocanu" class="w-full h-40 sm:h-48 object-cover" />
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none"></div>
-				<h3 class="font-display text-sm md:text-base font-bold px-3 py-2">Diana Mocanu</h3>
-				<p class="px-3 pb-3 text-xs text-text-light">Profesoară Istorie<br /><small>Clasele 5-12</small></p>
-			</div>
+			{%- endfor -%}
 		</div>
 	</div>
 </section>
@@ -210,19 +154,19 @@ layout: layout.njk
 		</div>
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
 			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
-				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="400" data-suffix="+">0</h3>
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="{{ stats.exercises | replace('+', '') }}" data-suffix="+">0</h3>
 				<p class="text-white/90 text-sm">Exerciții rezolvate</p>
 			</div>
 			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
-				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="10542" data-suffix="" data-separator=",">0</h3>
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="{{ stats.students }}" data-suffix="" data-separator=",">0</h3>
 				<p class="text-white/90 text-sm">Elevi mulțumiți</p>
 			</div>
 			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
-				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="30" data-suffix="+">0</h3>
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="{{ stats.teachers_count | replace('+', '') }}" data-suffix="+">0</h3>
 				<p class="text-white/90 text-sm">Profesori</p>
 			</div>
 			<div class="bg-gradient-to-r from-primary-purple to-primary-dark-purple text-white p-5 md:p-8 rounded-xl text-center shadow-md">
-				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="98" data-suffix="%">0</h3>
+				<h3 class="font-display text-3xl md:text-5xl font-bold mb-1 counter" data-target="{{ stats.success_rate }}" data-suffix="%">0</h3>
 				<p class="text-white/90 text-sm">Rata de succes</p>
 			</div>
 		</div>

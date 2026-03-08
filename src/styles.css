@@ -190,13 +190,13 @@ body.menu-open #line3 {
 }
 @media (min-width: 1024px) {
 	#mascot-img-wrap {
-		width: 180px; /* mai mare decât 124px */
-		height: 180px; /* mai mare decât 124px */
+		width: 180px;
+		height: 180px;
 	}
 
 	#mascot-bubble {
-		width: 350px; /* mai mare decât 290px */
-		min-height: 220px; /* mai mare decât 190px */
+		width: 350px;
+		min-height: 220px;
 		padding: 20px 22px;
 	}
 }
