@@ -1,0 +1,62 @@
+backend:
+    name: github
+    repo: jonnyy04/ExamenMd
+    branch: main
+
+media_folder: "src/img"
+public_folder: "/img"
+
+collections:
+    - name: "pages"
+      label: "Pagini"
+      files:
+          - label: "Pagina Principală"
+            name: "index"
+            file: "src/index.njk"
+            fields:
+                - { label: "Titlu", name: "title", widget: "string" }
+                - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+                - { label: "Conținut", name: "body", widget: "markdown" }
+
+    - name: "courses"
+      label: "Cursuri"
+      folder: "src/courses"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - { label: "Titlu Curs", name: "title", widget: "string" }
+          - { label: "Subtitlu", name: "subtitle", widget: "string" }
+          - { label: "Perioadă", name: "period", widget: "string", default: "12 săptămâni" }
+          - { label: "Frecvență", name: "frequency", widget: "string" }
+          - { label: "Format", name: "format", widget: "string" }
+          - { label: "Cost Curs (MDL)", name: "cost", widget: "number" }
+          - { label: "Nr. Sesiuni", name: "sessions", widget: "number" }
+          - { label: "Plată Completă (MDL)", name: "full_payment", widget: "number" }
+          - { label: "Economie (MDL)", name: "savings", widget: "number" }
+          - { label: "Economie Procent", name: "savings_percent", widget: "number" }
+          - { label: "Plată în Rate (MDL)", name: "installment", widget: "number" }
+          - { label: "Ordine", name: "order", widget: "number", default: 0 }
+
+    - name: "teachers"
+      label: "Profesori"
+      folder: "src/teachers"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - { label: "Nume", name: "title", widget: "string" }
+          - { label: "Foto", name: "photo", widget: "image" }
+          - { label: "Disciplină", name: "subject", widget: "string" }
+          - { label: "Clase", name: "classes", widget: "string" }
+          - { label: "Ordine", name: "order", widget: "number", default: 0 }
+
+    - name: "settings"
+      label: "Setări Site"
+      files:
+          - label: "Statistici"
+            name: "stats"
+            file: "src/_data/stats.json"
+            fields:
+                - { label: "Rata de succes (%)", name: "success_rate", widget: "number" }
+                - { label: "Elevi mulțumiți", name: "students", widget: "number" }
+                - { label: "Nr. Profesori", name: "teachers_count", widget: "string", default: "30+" }
+                - { label: "Exerciții rezolvate", name: "exercises", widget: "string", default: "400+" }
