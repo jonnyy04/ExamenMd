@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
 	<head>
 		<meta charset="UTF-8" />
@@ -28,7 +28,9 @@
 		<style>
 			/* ── Mobile menu ── */
 			#mobile-menu {
-				transition: opacity 0.25s ease, visibility 0.25s ease;
+				transition:
+					opacity 0.25s ease,
+					visibility 0.25s ease;
 			}
 			#mobile-menu.hidden {
 				opacity: 0;
@@ -41,7 +43,9 @@
 				pointer-events: all;
 			}
 			.hamburger-line {
-				transition: transform 0.3s ease, opacity 0.2s ease;
+				transition:
+					transform 0.3s ease,
+					opacity 0.2s ease;
 				transform-origin: center;
 			}
 			body.menu-open #line1 {
@@ -58,13 +62,22 @@
 			/* ── Mascot keyframes ── */
 			@keyframes mascotIdle {
 				0%,
+				18%,
+				34%,
+				76%,
 				100% {
 					transform: translateY(0) rotate(0deg);
 				}
-				25% {
+				9% {
 					transform: translateY(-6px) rotate(3deg);
 				}
-				75% {
+				27% {
+					transform: translateY(0) rotate(-12deg);
+				}
+				31% {
+					transform: translateY(0) rotate(12deg);
+				}
+				55% {
 					transform: translateY(-4px) rotate(-3deg);
 				}
 			}
@@ -74,27 +87,6 @@
 				}
 				100% {
 					transform: translateY(-14px) rotate(5deg) scale(1.05);
-				}
-			}
-			@keyframes mascotWiggle {
-				0%,
-				100% {
-					transform: rotate(0deg);
-				}
-				15% {
-					transform: rotate(-12deg);
-				}
-				30% {
-					transform: rotate(12deg);
-				}
-				45% {
-					transform: rotate(-8deg);
-				}
-				60% {
-					transform: rotate(8deg);
-				}
-				75% {
-					transform: rotate(-4deg);
 				}
 			}
 			@keyframes slideUp {
@@ -138,15 +130,26 @@
 				align-items: flex-end;
 				gap: 10px;
 				opacity: 0;
-				pointer-events: none;
-			}
-			#mascot-wrapper.visible {
-				animation: slideUp 0.5s ease forwards;
+				animation: slideUp 0.5s ease 2.5s forwards;
 				pointer-events: all;
+			}
+			#mascot-widget {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				gap: 10px;
+			}
+			#mascot-widget > summary {
+				list-style: none;
+			}
+			#mascot-widget > summary::-webkit-details-marker {
+				display: none;
 			}
 
 			#mascot-bubble {
-				display: none;
+				order: 1;
+				display: block;
 				position: relative;
 				background: #fff;
 				border: 2px solid #a535f0;
@@ -155,9 +158,19 @@
 				width: 242px;
 				box-shadow: 0 8px 32px rgba(165, 53, 240, 0.2);
 				font-family: "Poppins", sans-serif;
+				opacity: 0;
+				transform: scale(0.85) translateY(10px);
+				pointer-events: none;
+				transition:
+					opacity 0.25s ease,
+					transform 0.25s ease;
 			}
-			#mascot-bubble.open {
-				display: block;
+			#mascot-widget[open] #mascot-bubble,
+			#mascot-widget:hover #mascot-bubble,
+			#mascot-widget:focus-within #mascot-bubble {
+				opacity: 1;
+				transform: scale(1) translateY(0);
+				pointer-events: auto;
 				animation: bubblePop 0.35s ease forwards;
 			}
 
@@ -167,19 +180,25 @@
 				height: 100%;
 				object-fit: contain;
 				transform-origin: bottom center;
-				animation: mascotIdle 3s ease-in-out infinite;
+				animation: mascotIdle 8s ease-in-out infinite;
 			}
 			#mascot-img-wrap:hover #mascot-img {
 				animation: mascotHover 0.5s ease infinite alternate;
 			}
-			#mascot-img.wiggle {
-				animation: mascotWiggle 0.7s ease !important;
-			}
 
 			/* Mascot size (responsive) */
 			#mascot-img-wrap {
+				order: 2;
+				display: block;
+				list-style: none;
 				width: 92px;
 				height: 92px;
+				cursor: pointer;
+				align-self: flex-end;
+				filter: drop-shadow(0 8px 18px rgba(165, 53, 240, 0.3));
+			}
+			#mascot-img-wrap::-webkit-details-marker {
+				display: none;
 			}
 			@media (min-width: 640px) {
 				#mascot-img-wrap {
@@ -189,13 +208,13 @@
 			}
 			@media (min-width: 1024px) {
 				#mascot-img-wrap {
-					width: 180px; /* mai mare decât 124px */
-					height: 180px; /* mai mare decât 124px */
+					width: 180px;
+					height: 180px;
 				}
 
 				#mascot-bubble {
-					width: 350px; /* mai mare decât 290px */
-					min-height: 220px; /* mai mare decât 190px */
+					width: 350px;
+					min-height: 220px;
 					padding: 20px 22px;
 				}
 			}
@@ -210,7 +229,9 @@
 				height: 36px;
 				border-radius: 50%;
 				flex-shrink: 0;
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
 				text-decoration: none;
 			}
 			.mascot-social:hover {
@@ -236,29 +257,11 @@
 				opacity: 1;
 			}
 
-			/* Peek */
-			#mascot-peek {
-				position: fixed;
-				bottom: 0;
-				right: 32px;
-				z-index: 9998;
-				width: 64px;
-				cursor: pointer;
-				opacity: 0;
-				transform: translateY(64px);
-				pointer-events: none;
-				transition: opacity 0.4s ease, transform 0.5s ease;
-				filter: drop-shadow(0 -4px 10px rgba(165, 53, 240, 0.25));
-			}
-			#mascot-peek.visible {
-				opacity: 1;
-				transform: translateY(0);
-				pointer-events: all;
-			}
-			#mascot-peek img {
-				display: block;
-				width: 100%;
-				animation: peekBob 2s ease-in-out infinite;
+			@media (prefers-reduced-motion: reduce) {
+				#mascot-wrapper,
+				#mascot-img {
+					animation: none;
+				}
 			}
 		</style>
 	</head>
@@ -690,70 +693,54 @@
 			</div>
 		</footer>
 
-		<!-- ======================================================
-     MASCOT
-     Peek strip: shows at bottom edge after mascot hidden
-     ====================================================== -->
-		<div id="mascot-peek">
-			<img src="img/mascot.png" alt="Mascota" />
-		</div>
-
-		<!-- Main mascot widget -->
+		<!-- ===== MASCOT ===== -->
 		<div id="mascot-wrapper">
-			<!-- Speech bubble (hidden by default, JS adds .open) -->
-			<div id="mascot-bubble">
-				<button id="bubble-close" aria-label="Închide" style="position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; background: #a535f0; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center">
-					<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
-						<line x1="2" y1="2" x2="8" y2="8" />
-						<line x1="8" y1="2" x2="2" y2="8" />
-					</svg>
-				</button>
+			<details id="mascot-widget">
+				<summary id="mascot-img-wrap" aria-label="Deschide mesajul mascotei">
+					<img id="mascot-img" src="img/mascot.png" alt="Mascota Examen.md" />
+				</summary>
 
-				<p style="margin: 0 0 4px 0; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; color: #a535f0">Bun venit la Examen.md!</p>
-				<p style="margin: 0 0 10px 0; font-size: 12px; color: #666; line-height: 1.6">Pregătire cu profesori calificați. Înscrie-te la o <strong style="color: #1a1a1a">lecție gratuită</strong> astăzi!</p>
-				<p style="margin: 0 0 8px 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #999; font-weight: 600">Contactează-ne pe:</p>
+				<div id="mascot-bubble">
+					<p style="margin: 0 0 4px 0; font-family: &quot;Playfair Display&quot;, serif; font-weight: 700; font-size: 14px; color: #a535f0">Bun venit la Examen.md!</p>
+					<p style="margin: 0 0 10px 0; font-size: 12px; color: #666; line-height: 1.6">Pregătire cu profesori calificați. Înscrie-te la o <strong style="color: #1a1a1a">lecție gratuită</strong> astăzi!</p>
+					<p style="margin: 0 0 8px 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #999; font-weight: 600">Contactează-ne pe:</p>
 
-				<!-- Social icons -->
-				<div style="display: flex; gap: 8px">
-					<a href="https://facebook.com" target="_blank" rel="noopener" class="mascot-social" style="background: #1877f2">
-						<span class="tip">Facebook</span>
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-						</svg>
-					</a>
+					<!-- Social icons -->
+					<div style="display: flex; gap: 8px">
+						<a href="https://facebook.com" target="_blank" rel="noopener" class="mascot-social" style="background: #1877f2">
+							<span class="tip">Facebook</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+								<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+							</svg>
+						</a>
 
-					<a href="https://instagram.com" target="_blank" rel="noopener" class="mascot-social" style="background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7)">
-						<span class="tip">Instagram</span>
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="2" y="2" width="20" height="20" rx="5" />
-							<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-							<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-						</svg>
-					</a>
+						<a href="https://instagram.com" target="_blank" rel="noopener" class="mascot-social" style="background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7)">
+							<span class="tip">Instagram</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="2" width="20" height="20" rx="5" />
+								<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+								<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+							</svg>
+						</a>
 
-					<a href="https://wa.me/37368334060" target="_blank" rel="noopener" class="mascot-social" style="background: #25d366">
-						<span class="tip">WhatsApp</span>
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-							<path
-								d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
-							/>
-						</svg>
-					</a>
+						<a href="https://wa.me/37368334060" target="_blank" rel="noopener" class="mascot-social" style="background: #25d366">
+							<span class="tip">WhatsApp</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+								<path
+									d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+								/>
+							</svg>
+						</a>
 
-					<a href="https://t.me/examenmd" target="_blank" rel="noopener" class="mascot-social" style="background: #229ed9">
-						<span class="tip">Telegram</span>
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-							<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-						</svg>
-					</a>
+						<a href="https://t.me/examenmd" target="_blank" rel="noopener" class="mascot-social" style="background: #229ed9">
+							<span class="tip">Telegram</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+								<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+							</svg>
+						</a>
+					</div>
 				</div>
-			</div>
-			<!-- /bubble -->
-
-			<!-- Mascot image — click to toggle bubble, dblclick to hide -->
-			<div id="mascot-img-wrap" style="cursor: pointer; align-self: flex-end; filter: drop-shadow(0 8px 18px rgba(165, 53, 240, 0.3))">
-				<img id="mascot-img" src="img/mascot.png" alt="Mascota Examen.md" />
-			</div>
+			</details>
 		</div>
 		<!-- /mascot-wrapper -->
 
@@ -781,48 +768,6 @@
 			menu.addEventListener("click", (e) => {
 				if (e.target === menu) closeMenu();
 			});
-
-			/* ── Mascot ── */
-			const wrapper = document.getElementById("mascot-wrapper");
-			const bubble = document.getElementById("mascot-bubble");
-			const bubbleClose = document.getElementById("bubble-close");
-			const imgWrap = document.getElementById("mascot-img-wrap");
-			const mascotImg = document.getElementById("mascot-img");
-			const peek = document.getElementById("mascot-peek");
-
-			// Appear after 2.5 s
-			setTimeout(() => {
-				wrapper.classList.add("visible");
-			}, 2500);
-
-			// Click → toggle bubble
-			imgWrap.addEventListener("click", () => bubble.classList.toggle("open"));
-
-			// Close bubble only
-			bubbleClose.addEventListener("click", (e) => {
-				e.stopPropagation();
-				bubble.classList.remove("open");
-			});
-
-			// Double-click → hide mascot, show peek
-			imgWrap.addEventListener("dblclick", () => {
-				bubble.classList.remove("open");
-				wrapper.classList.remove("visible");
-				setTimeout(() => peek.classList.add("visible"), 500);
-			});
-
-			// Click peek → restore mascot
-			peek.addEventListener("click", () => {
-				peek.classList.remove("visible");
-				wrapper.classList.add("visible");
-			});
-
-			// Wiggle every 8 s
-			setInterval(() => {
-				if (!wrapper.classList.contains("visible")) return;
-				mascotImg.classList.add("wiggle");
-				mascotImg.addEventListener("animationend", () => mascotImg.classList.remove("wiggle"), { once: true });
-			}, 8000);
 		</script>
 	</body>
 </html>
